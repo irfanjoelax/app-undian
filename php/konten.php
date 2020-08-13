@@ -11,3 +11,6 @@ elseif ($view == "peserta") include("peserta.php");
 elseif ($view == "peserta-tambah") include("peserta_tambah.php");
 elseif ($view == "peserta-detail") include("peserta_detail.php");
 elseif ($view == "peserta-ubah") include("peserta_ubah.php");
+
+// VIEW UNDIAN
+elseif ($view == "undian") include("undian.php");

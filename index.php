@@ -27,7 +27,7 @@ include('php/koneksi.php');
           <a class="btn btn-primary mr-3 my-2" href="<?= $path; ?>">
             <i class="zmdi zmdi-layers"></i>&nbsp; Beranda
           </a>
-          <a class="btn btn-warning mr-3 my-2 text-white" href="#">
+          <a class="btn btn-warning mr-3 my-2 text-white" href="?view=undian">
             <i class="zmdi zmdi-refresh"></i>&nbsp; Undian
           </a>
           <a class="btn btn-success mr-3 my-2" href="?view=peserta">
@@ -45,32 +45,53 @@ include('php/koneksi.php');
   <script src="vendor/jquery/jquery-3.5.1.min.js"></script>
   <script src="vendor/bootstrap4/bootstrap.bundle.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/init.dataTables.js"></script>
+  <script src="js/image.preview.js"></script>
   <script>
+    // load default tombol acak
+    $('#btnAcak').text('Acak Undian');
+
     $(document).ready(function() {
-      $('.dataTable').DataTable({
-        "processing": true,
-        "serverside": true,
-        "ordering": false,
-        "language": {
-          "url": "vendor/datatables/Indonesian.json"
-        }
+      // jika tombol acak diklik
+      $('#btnAcak').click(function() {
+
+        // set tombol acak proses
+        $('#btnAcak').text('Sedang Proses..');
+        $('#btnAcak').removeClass('btn-warning');
+        $('#btnAcak').toggleClass('btn-danger');
+        $('#btnAcak').addClass('disabled');
+
+        // proses ajax jQuery
+        $.ajax({
+          type: "GET",
+          url: "php/peserta_terdaftar.php",
+          dataType: "JSON",
+          beforeSend: function() {
+            // efek animasi loading
+            $('#fotoAcak').attr('src', '<?= $path . '/img/loader.gif' ?>');
+          },
+          success: function(response) {
+            // tangkap data dari database
+            let data = response[0];
+
+            setTimeout(function() {
+              // set tombol
+              $('#btnAcak').text('Acak Undian');
+              $('#btnAcak').removeClass('btn-danger');
+              $('#btnAcak').toggleClass('btn-warning');
+              $('#btnAcak').removeClass('disabled');
+
+              // parsing ke view 
+              $('#noPemenang').text(data.no);
+              $('#namaPemenang').text(data.nm);
+              $('#fotoAcak').attr('src', '<?= $path . '/img/peserta/' ?>' + data.foto);
+              $('#btnSimpan').removeClass('disabled');
+              $('#btnSimpan').attr('href', '<?= $path . '/php/peserta_simpan.php?no=' ?>' + data.no);
+            }, 3000);
+          }
+        });
       });
     });
-  </script>
-  <script>
-    function imgPreview() {
-      const gambar = document.querySelector('#foto');
-      const gambarLabel = document.querySelector('.custom-file-label');
-      const gambarPreview = document.querySelector('.img-preview');
-
-      gambarLabel.textContent = gambar.files[0].name;
-
-      const fileGambar = new FileReader();
-      fileGambar.readAsDataURL(gambar.files[0]);
-      fileGambar.onload = function(e) {
-        gambarPreview.src = e.target.result;
-      }
-    }
   </script>
 </body>
 

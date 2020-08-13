@@ -10,13 +10,14 @@
       </h3>
       <hr class="bg-success">
       <div class="row">
-        <div class="col">
+        <div class="col-lg-12">
           <div class="table-responsive">
-            <table class="table table-striped text-center dataTable display">
+            <table class="table table-striped text-center dataTable">
               <thead>
                 <tr>
                   <th scope="row">No. Peserta</th>
                   <th scope="row">Nama Peserta</th>
+                  <th scope="row">Status</th>
                   <th scope="row">&nbsp;</th>
                 </tr>
               </thead>
@@ -29,6 +30,9 @@
                   <tr>
                     <td><?= $psrt['no_psrt']; ?></td>
                     <td><?= $psrt['nm_psrt']; ?></td>
+                    <td>
+                      <?= ($psrt['status_psrt'] == 0) ? '<span class="badge badge-danger">Belum berhasil</span>' : '<span class="badge badge-primary">Berhasil</span>'; ?>
+                    </td>
                     <td>
                       <a href="?view=peserta-detail&no=<?= $psrt['no_psrt']; ?>" class="btn btn-sm btn-dark">Detail</a>
                     </td>
