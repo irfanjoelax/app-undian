@@ -4,7 +4,7 @@
     <h3 class="text-primary">
       Daftar Hadiah
       <span class="float-right">
-        <a href="?view=peserta-tambah" class="btn btn-sm btn-primary">
+        <a href="?view=hadiah-tambah" class="btn btn-sm btn-primary">
           <i class="zmdi zmdi-plus"></i>&nbsp; Tambah
         </a>
       </span>
@@ -12,16 +12,17 @@
 
     <hr class="bg-primary">
 
-    <!-- tabel peserta -->
+    <!-- tabel hadiah -->
     <div class="row">
       <div class="col-lg-12">
         <div class="table-responsive">
           <table class="table table-striped dataTable">
             <thead>
               <tr>
-                <th scope="row" width="40">No.</th>
-                <th scope="row">Hadiah</th>
-                <th scope="row">&nbsp;</th>
+                <th width="40">No.</th>
+                <th>Hadiah</th>
+                <th width="40" class="text-right">Jumlah</th>
+                <th width="80">&nbsp;</th>
               </tr>
             </thead>
             <tbody>
@@ -32,12 +33,13 @@
               while ($psrt = mysqli_fetch_array($sql)) :
               ?>
                 <tr>
-                  <td scope="col"><?= $no++ ?></td>
+                  <td class="text-center"><?= $no++ ?></td>
                   <td><?= $psrt['nama_hdh']; ?></td>
-                  <td>
+                  <td class="text-right"><?= $psrt['jmlh_hdh']; ?></td>
+                  <td class="text-center">
                     <div class="btn-group" role="group">
-                      <a href="?view=peserta-ubah&id=<?= $psrt['id_hdh']; ?>" class="btn btn-sm btn-secondary">Ubah</a>
-                      <a href="?view=peserta-hapus&id=<?= $psrt['id_hdh']; ?>" class="btn btn-sm btn-dark">Hapus</a>
+                      <a href="?view=hadiah-ubah&id=<?= $psrt['id_hdh']; ?>" class="btn btn-sm btn-secondary">Ubah</a>
+                      <a href="?view=hadiah-hapus&id=<?= $psrt['id_hdh']; ?>" class="btn btn-sm btn-dark">Hapus</a>
                     </div>
                   </td>
                 </tr>

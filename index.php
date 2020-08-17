@@ -78,7 +78,7 @@ $totalHadiah    = mysqli_num_rows($sql3);
               <h1 class="text-center"><?= number_format($totalPemenang); ?></h1>
             </div>
           </div>
-          <div class="card bg-success text-white mt-3">
+          <div class="card bg-primary text-white mt-3">
             <div class="card-body">
               <h5 class="card-title">
                 Total Hadiah:
