@@ -28,11 +28,13 @@ $sisaPeserta    = mysqli_num_rows($sql4);
   <!-- TITLE -->
   <title><?= $title; ?></title>
 
+  <!-- FAVICON -->
+  <link rel="shortcut icon" href="<?= $path . '/img/box.png'; ?>" type="image/x-icon">
+
   <!-- CSS FILE -->
   <link rel="stylesheet" href="vendor/bootstrap4/bootstrap.css">
   <link rel="stylesheet" href="vendor/material-icon/css/material-design-iconic-font.min.css">
   <link rel="stylesheet" href="vendor/datatables/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="vendor/bootstrap4/style.css">
 </head>
 
 <body>
