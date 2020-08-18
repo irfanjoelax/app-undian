@@ -58,7 +58,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
             <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Peserta
           </a>
           <a class="btn btn-sm btn-info ml-3 my-2" href="?view=pemenang">
-            <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Pemenang
+            <i class="zmdi zmdi-account-box"></i>&nbsp; Daftar Pemenang
           </a>
         </div>
       </div>
@@ -75,7 +75,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
             <div class="card-body">
               <h6 class="card-title">
                 Total Peserta:
-                <span class="float-right">i</span>
+                <span class="float-right"><i class="zmdi zmdi-accounts-alt"></i></span>
               </h6>
               <h4 class="text-center"><?= number_format($totalPeserta); ?></h4>
             </div>
@@ -84,7 +84,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
             <div class="card-body">
               <h6 class="card-title">
                 Total Pemenang:
-                <span class="float-right">i</span>
+                <span class="float-right"><i class="zmdi zmdi-account-box"></i></span>
               </h6>
               <h4 class="text-center"><?= number_format($totalPemenang); ?></h4>
             </div>
@@ -93,7 +93,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
             <div class="card-body">
               <h6 class="card-title">
                 Sisa Peserta:
-                <span class="float-right">i</span>
+                <span class="float-right"><i class="zmdi zmdi-account"></i></span>
               </h6>
               <h4 class="text-center"><?= number_format($sisaPeserta); ?></h4>
             </div>
@@ -102,7 +102,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
             <div class="card-body">
               <h6 class="card-title">
                 Total Hadiah:
-                <span class="float-right">i</span>
+                <span class="float-right"><i class="zmdi zmdi-mall"></i></span>
               </h6>
               <h4 class="text-center"><?= number_format($totalHadiah); ?></h4>
             </div>

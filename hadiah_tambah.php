@@ -15,8 +15,8 @@
           <input type="number" class="form-control" name="jumlah" placeholder="0" required>
         </div>
       </div>
-      <button type="submit" class="btn btn-sm btn-primary">Simpan Hadiah</button>
-      <a href="?view=hadiah" class="btn btn-sm btn-secondary">Batal / Kembali</a>
+      <button type="submit" class="btn btn-sm btn-primary"><i class="zmdi zmdi-save"></i>&nbsp;Simpan Hadiah</button>
+      <a href="?view=hadiah" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
     </form>
   </div>
 </div>

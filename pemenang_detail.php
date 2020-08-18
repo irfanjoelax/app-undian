@@ -4,7 +4,7 @@
       Detail Pemenang
       <span class="float-right">
         <a href="?view=pemenang" class="btn btn-sm btn-dark">
-          <i class="zmdi zmdi-plus"></i>&nbsp; Batal / Kembali
+          <i class="zmdi zmdi-close"></i>&nbsp; Batal / Kembali
         </a>
       </span>
     </h3>

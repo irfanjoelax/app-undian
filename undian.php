@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="col-3">
-            <button type="button" id="btnAcak" class="btn btn-block btn-warning text-white mb-2" disabled>Acak Undian</button>
+            <button type="button" id="btnAcak" class="btn btn-block btn-warning text-white mb-2" disabled><i class="zmdi zmdi-spinner"></i>&nbsp;Acak Undian</button>
           </div>
         </form>
       </div>
@@ -43,7 +43,7 @@
   <div class="card-body">
     <h5>No.Peserta: <span class="font-weight-bold" id="noPemenang">xxxxx</span></h5>
     <h5>Nama: <span class="font-weight-bold" id="namaPemenang">xxxxx</span></h5>
-    <button id="btnSimpan" class="btn btn-danger mt-3" disabled>Simpan Pemenang</button>
+    <button id="btnSimpan" class="btn btn-danger mt-3" disabled><i class="zmdi zmdi-save"></i>&nbsp;Simpan Pemenang</button>
   </div>
 </div>
 

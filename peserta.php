@@ -39,8 +39,8 @@
                   </td>
                   <td>
                     <div class="btn-group" role="group">
-                      <a href="?view=peserta-ubah&id=<?= $psrt['id_psrt']; ?>" class="btn btn-sm btn-secondary">Ubah</a>
-                      <a href="?view=peserta-hapus&id=<?= $psrt['id_psrt']; ?>" class="btn btn-sm btn-dark">Hapus</a>
+                      <a href="?view=peserta-ubah&id=<?= $psrt['id_psrt']; ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
+                      <a href="?view=peserta-hapus&id=<?= $psrt['id_psrt']; ?>" class="btn btn-sm btn-dark"><i class="zmdi zmdi-delete"></i>&nbsp;Hapus</a>
                     </div>
                   </td>
                 </tr>

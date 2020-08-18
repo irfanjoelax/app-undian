@@ -29,7 +29,7 @@
                   <td><?= $psrt['no_psrt']; ?></td>
                   <td><?= $psrt['nm_psrt']; ?></td>
                   <td>
-                    <a href="?view=pemenang-detail&no=<?= $psrt['no_psrt']; ?>" class="btn btn-sm btn-secondary">Detail</a>
+                    <a href="?view=pemenang-detail&no=<?= $psrt['no_psrt']; ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-eye"></i>&nbsp;Detail</a>
                   </td>
                 </tr>
               <?php endwhile; ?>

@@ -21,8 +21,8 @@ $psrt   = mysqli_fetch_array($sql);
         <label for="nama">Nama Peserta</label>
         <input type="text" class="form-control" name="nama" value="<?= $psrt['nm_psrt']; ?>" required>
       </div>
-      <button type="submit" class="btn btn-sm btn-success">Simpan Peserta</button>
-      <a href="?view=peserta" class="btn btn-sm btn-secondary">Batal / Kembali</a>
+      <button type="submit" class="btn btn-sm btn-success"><i class="zmdi zmdi-save"></i>&nbsp;Simpan Peserta</button>
+      <a href="?view=peserta" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
     </form>
   </div>
 </div>
