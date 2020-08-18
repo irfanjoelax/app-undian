@@ -8,7 +8,7 @@ $nama     = $_POST['nama'];
 $jumlah   = $_POST['jumlah'];
 
 // proses query database
-$query  = "INSERT INTO hadiah SET nama_hdh = '$nama', jmlh_hdh = '$jumlah', psrt_id = 0";
+$query  = "INSERT INTO hadiah SET nama_hdh = '$nama', jmlh_hdh = '$jumlah'";
 mysqli_query($conn, $query) or die(mysqli_error($conn));
 
 // redirect

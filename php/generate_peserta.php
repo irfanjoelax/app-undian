@@ -7,7 +7,7 @@ require_once 'koneksi.php';
 $faker = Faker\Factory::create('id_ID');
 
 // generate berapa kali ?
-for ($i = 0; $i < 1000; $i++) {
+for ($i = 0; $i < 10; $i++) {
   // proses query database
   $query  = "INSERT INTO peserta SET no_psrt = '$faker->ean8', nm_psrt = '$faker->name', stts_psrt = 0";
   mysqli_query($conn, $query) or die(mysqli_error($conn));

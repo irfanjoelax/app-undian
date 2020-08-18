@@ -7,7 +7,7 @@ $sql      = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $query2   = "SELECT * FROM peserta";
 $sql2     = mysqli_query($conn, $query2) or die(mysqli_error($conn));
 
-$query3   = "SELECT * FROM hadiah";
+$query3   = "SELECT * FROM hadiah WHERE jmlh_hdh != 0";
 $sql3     = mysqli_query($conn, $query3) or die(mysqli_error($conn));
 
 $query4   = "SELECT * FROM peserta WHERE stts_psrt = 0";
@@ -24,15 +24,19 @@ $sisaPeserta    = mysqli_num_rows($sql4);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TITLE -->
   <title><?= $title; ?></title>
 
+  <!-- CSS FILE -->
   <link rel="stylesheet" href="vendor/bootstrap4/bootstrap.css">
   <link rel="stylesheet" href="vendor/material-icon/css/material-design-iconic-font.min.css">
   <link rel="stylesheet" href="vendor/datatables/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap4/style.css">
 </head>
 
 <body>
-  <!-- navbar -->
+  <!-- NAVBAR -->
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white border-bottom shadow py-3">
     <div class="container">
       <span class="navbar-brand my-2 h4 text-uppercase"><?= $title; ?></span>
@@ -47,13 +51,13 @@ $sisaPeserta    = mysqli_num_rows($sql4);
           <a class="btn btn-sm btn-danger ml-3 my-2 text-white" href="?view=undian">
             <i class="zmdi zmdi-refresh"></i>&nbsp; Undian
           </a>
-          <a class="btn btn-sm btn-success ml-3 my-2" href="?view=peserta">
-            <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Peserta
-          </a>
           <a class="btn btn-sm btn-primary ml-3 my-2" href="?view=hadiah">
             <i class="zmdi zmdi-mall"></i>&nbsp; Daftar Hadiah
           </a>
-          <a class="btn btn-sm btn-info ml-3 my-2" href="?view=peserta">
+          <a class="btn btn-sm btn-success ml-3 my-2" href="?view=peserta">
+            <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Peserta
+          </a>
+          <a class="btn btn-sm btn-info ml-3 my-2" href="?view=pemenang">
             <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Pemenang
           </a>
         </div>
@@ -61,11 +65,11 @@ $sisaPeserta    = mysqli_num_rows($sql4);
     </div>
   </nav>
 
-  <!-- konten -->
+  <!-- KONTEN -->
   <section class="mb-4">
     <div class="container">
       <div class="row">
-        <!-- panel kiri -->
+        <!-- PANEL KIRI -->
         <div class="col-lg-3 mt-4">
           <div class="card bg-warning text-white">
             <div class="card-body">
@@ -85,7 +89,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
               <h4 class="text-center"><?= number_format($totalPemenang); ?></h4>
             </div>
           </div>
-          <div class="card bg-success text-white mt-3">
+          <div class="card bg-primary text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
                 Sisa Peserta:
@@ -94,7 +98,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
               <h4 class="text-center"><?= number_format($sisaPeserta); ?></h4>
             </div>
           </div>
-          <div class="card bg-primary text-white mt-3">
+          <div class="card bg-success text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
                 Total Hadiah:
@@ -105,7 +109,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
           </div>
         </div>
 
-        <!-- konten -->
+        <!-- PANEL KANAN Atau KONTEN UTAMA -->
         <div class="col-lg-9 mt-4">
           <?php include_once("php/konten.php"); ?>
         </div>

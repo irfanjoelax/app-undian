@@ -22,3 +22,7 @@ elseif ($view == "hadiah-hapus") include("hadiah_hapus.php");
 
 // VIEW UNDIAN
 elseif ($view == "undian") include("undian.php");
+
+// VIEW PEMENANG
+elseif ($view == "pemenang") include("pemenang.php");
+elseif ($view == "pemenang-detail") include("pemenang_detail.php");
