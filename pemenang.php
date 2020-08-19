@@ -3,6 +3,14 @@
     <!-- label header -->
     <h3 class="text-info">
       Daftar Pemenang
+      <span class="float-right">
+        <a href="<?= $path . '/php/generate_excel_pemenang.php'; ?>" class="btn btn-sm btn-success">
+          <i class="zmdi zmdi-collection-item"></i>&nbsp; Export Excel
+        </a>
+        <a href="<?= $path . '/php/generate_pdf_pemenang.php'; ?>" class="btn btn-sm btn-danger">
+          <i class="zmdi zmdi-collection-pdf"></i>&nbsp; Export PDF
+        </a>
+      </span>
     </h3>
 
     <hr class="bg-info">
