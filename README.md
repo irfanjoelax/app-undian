@@ -8,11 +8,11 @@ oleh Pasangan Calon Walikota dan Wakil Walikota Balikpapan Kalimantan Timur.
 ## Instalasi
 
 - Download `zip` atau `git pull` aplikasi ini
-- Buat Database, kemudia import file excel pada direktori `/database`
+- Buat Database, kemudian import file excel pada direktori `/database`
 - Konfigurasi file `php/koneksi.php`
 - Enjoy it!
 
-## Server Requirements
+## Kebutuhan Perangkat Lunak
 
 - XAMPP
 - Visual Studio Code
