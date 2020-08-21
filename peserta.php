@@ -3,6 +3,11 @@
     <!-- label header -->
     <h3 class="text-success">
       Daftar Peserta
+      <span class="float-right ml-2">
+        <a href="?view=peserta-import" class="btn btn-sm btn-dark">
+          <i class="zmdi zmdi-collection-item"></i>&nbsp; Import Excel
+        </a>
+      </span>
       <span class="float-right">
         <a href="?view=peserta-tambah" class="btn btn-sm btn-success">
           <i class="zmdi zmdi-plus"></i>&nbsp; Tambah

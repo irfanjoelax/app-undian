@@ -13,6 +13,6 @@ for ($i = 0; $i < 10; $i++) {
   mysqli_query($conn, $query) or die(mysqli_error($conn));
 }
 
-// notif
-echo "tambah data dummy peserta berhasil";
+// REDIRECT
+header('Location: ' . $path . '/?view=peserta');
 exit;

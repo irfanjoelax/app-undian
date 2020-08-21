@@ -125,7 +125,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/init.dataTables.js"></script>
   <script src="vendor/sweetalert/sweetalert.min.js"></script>
-  <script src="js/image.preview.js"></script>
+  <script src="js/upload-file.js"></script>
   <script src="js/undian.js"></script>
 </body>
 

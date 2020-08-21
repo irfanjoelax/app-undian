@@ -12,6 +12,7 @@ elseif ($view == "peserta-tambah") include("peserta_tambah.php");
 elseif ($view == "peserta-detail") include("peserta_detail.php");
 elseif ($view == "peserta-ubah") include("peserta_ubah.php");
 elseif ($view == "peserta-hapus") include("peserta_hapus.php");
+elseif ($view == "peserta-import") include("peserta_import.php");
 
 // VIEW CRUD HADIAH
 elseif ($view == "hadiah") include("hadiah.php");
