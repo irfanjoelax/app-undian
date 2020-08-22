@@ -91,7 +91,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
               <h4 class="text-center"><?= number_format($totalPemenang); ?></h4>
             </div>
           </div>
-          <div class="card bg-primary text-white mt-3">
+          <div class="card bg-success text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
                 Sisa Peserta:
@@ -100,7 +100,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
               <h4 class="text-center"><?= number_format($sisaPeserta); ?></h4>
             </div>
           </div>
-          <div class="card bg-success text-white mt-3">
+          <div class="card bg-primary text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
                 Total Hadiah:
@@ -126,6 +126,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
   <script src="vendor/datatables/init.dataTables.js"></script>
   <script src="vendor/sweetalert/sweetalert.min.js"></script>
   <script src="js/upload-file.js"></script>
+  <script src="js/checked-all.js"></script>
   <script src="js/undian.js"></script>
 </body>
 

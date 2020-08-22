@@ -7,7 +7,8 @@ oleh Pasangan Calon Walikota dan Wakil Walikota Balikpapan Kalimantan Timur.
 
 ## Instalasi
 
-- Download `zip` atau `git pull` aplikasi ini
+Download `zip` atau `git pull` aplikasi ini
+
 - Buat Database, kemudian import file excel pada direktori `/database`
 - Konfigurasi file `php/koneksi.php`
 - Enjoy it!
