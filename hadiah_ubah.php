@@ -1,5 +1,6 @@
 <?php
-$query  = "SELECT * FROM hadiah WHERE id_hdh = '$_GET[id]'";
+$id     = b_decode($_GET['id']);
+$query  = "SELECT * FROM hadiah WHERE id_hdh = '$id'";
 $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $hdh    = mysqli_fetch_array($sql);
 ?>
@@ -10,7 +11,7 @@ $hdh    = mysqli_fetch_array($sql);
       Ubah Hadiah
     </h3>
     <hr class="bg-primary">
-    <form action="<?= $path . '/php/hadiah_ubah_aksi.php?id=' . $hdh['id_hdh']; ?>" method="POST">
+    <form action="<?= $path . '/php/hadiah_ubah_aksi.php?id=' . b_encode($hdh['id_hdh']); ?>" method="POST">
       <div class=" form-group row">
         <div class="col-10">
           <label for="nama">Nama Hadiah</label>

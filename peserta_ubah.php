@@ -1,5 +1,6 @@
 <?php
-$query  = "SELECT * FROM peserta WHERE id_psrt = '$_GET[id]'";
+$id     = b_decode($_GET['id']);
+$query  = "SELECT * FROM peserta WHERE id_psrt = '$id'";
 $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $psrt   = mysqli_fetch_array($sql);
 ?>
@@ -10,7 +11,7 @@ $psrt   = mysqli_fetch_array($sql);
       Ubah Peserta
     </h3>
     <hr class="bg-success">
-    <form action="<?= $path . '/php/peserta_ubah_aksi.php?id=' . $psrt['id_psrt']; ?>" method="POST">
+    <form action="<?= $path . '/php/peserta_ubah_aksi.php?id=' . b_encode($psrt['id_psrt']); ?>" method="POST">
       <div class="form-group row">
         <div class="col-6">
           <label for="nomer">No. Peserta</label>

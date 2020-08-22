@@ -2,9 +2,10 @@
 
 // require file koneksi
 require('koneksi.php');
+require('bcrypt.php');
 
 // tangkap inputan
-$id         = $_GET['id'];
+$id         = b_decode($_GET['id']);
 $no         = $_POST['nomer'];
 $nama       = ucwords($_POST['nama']);
 

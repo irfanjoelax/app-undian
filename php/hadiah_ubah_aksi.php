@@ -1,10 +1,11 @@
 <?php
 
-// require file koneksi
+// require file koneksi & bcrypt
 require('koneksi.php');
+require('bcrypt.php');
 
 // tangkap inputan
-$id       = $_GET['id'];
+$id       = b_decode($_GET['id']);
 $nama     = $_POST['nama'];
 $jumlah   = $_POST['jumlah'];
 

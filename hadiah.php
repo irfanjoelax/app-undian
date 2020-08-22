@@ -38,8 +38,8 @@
                   <td class="text-right"><?= $psrt['jmlh_hdh']; ?></td>
                   <td class="text-center">
                     <div class="btn-group" role="group">
-                      <a href="?view=hadiah-ubah&id=<?= $psrt['id_hdh']; ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
-                      <a href="?view=hadiah-hapus&id=<?= $psrt['id_hdh']; ?>" class="btn btn-sm btn-dark"><i class="zmdi zmdi-delete"></i>&nbsp;Hapus</a>
+                      <a href="?view=hadiah-ubah&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
+                      <a href="?view=hadiah-hapus&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-dark"><i class="zmdi zmdi-delete"></i>&nbsp;Hapus</a>
                     </div>
                   </td>
                 </tr>

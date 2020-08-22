@@ -1,5 +1,8 @@
 <?php
+
+// include file koneksi & bcrypt
 include('php/koneksi.php');
+include('php/bcrypt.php');
 
 $query    = "SELECT * FROM peserta WHERE stts_psrt = 1";
 $sql      = mysqli_query($conn, $query) or die(mysqli_error($conn));
