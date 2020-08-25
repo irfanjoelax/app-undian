@@ -53,7 +53,7 @@ $sisaPeserta    = mysqli_num_rows($sql4);
           <a class="btn btn-sm btn-warning text-white ml-3 my-2" href="<?= $path; ?>">
             <i class="zmdi zmdi-layers"></i>&nbsp; Beranda
           </a>
-          <a class="btn btn-sm btn-danger ml-3 my-2 text-white" href="?view=undian">
+          <a class="btn btn-sm btn-danger ml-3 my-2 text-white" target="_blank" href="undian.php">
             <i class="zmdi zmdi-refresh"></i>&nbsp; Undian
           </a>
           <a class="btn btn-sm btn-primary ml-3 my-2" href="?view=hadiah">

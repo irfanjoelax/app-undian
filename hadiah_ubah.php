@@ -13,9 +13,13 @@ $hdh    = mysqli_fetch_array($sql);
     <hr class="bg-primary">
     <form action="<?= $path . '/php/hadiah_ubah_aksi.php?id=' . b_encode($hdh['id_hdh']); ?>" method="POST">
       <div class=" form-group row">
-        <div class="col-10">
+        <div class="col-8">
           <label for="nama">Nama Hadiah</label>
           <input type="text" class="form-control" name="nama" value="<?= $hdh['nama_hdh']; ?>" required>
+        </div>
+        <div class="col-2">
+          <label for="urut">Urutan</label>
+          <input type="number" class="form-control" name="urut" value="<?= $hdh['urut_hdh']; ?>" required>
         </div>
         <div class="col-2">
           <label for="jumlah">Jumlah</label>

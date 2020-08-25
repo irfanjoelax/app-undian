@@ -1,56 +1,56 @@
-$(document).ready(function () {
-  // jika tombol acak diklik
-  $("#btnAcak").click(function () {
-    // proses ajax jQuery
-    $.ajax({
-      type: "GET",
-      url: "php/peserta_terdaftar.php",
-      dataType: "JSON",
-      success: function (response) {
-        // jika data peserta masih kosong
-        if (response.toString() == "") {
-          swal("Informasi!", "Data peserta masih kosong", "info", {
-            button: false,
-            timer: 3000,
-          });
-          setInterval(function () {
-            window.location.replace("?view=undian");
-          }, 1000);
-        }
+function hideModal() {
+  $("#popupModal").modal("hide");
+}
 
-        // jika data peserta ada
-        else {
-          // show modal
-          $("#prosesModal").modal("show");
+function prosesUndian() {
+  // proses ajax jQuery
+  $.ajax({
+    type: "GET",
+    url: "php/peserta_terdaftar.php",
+    dataType: "JSON",
+    success: function (response) {
+      // jika data peserta masih kosong
+      if (response.toString() == "") {
+        swal("Informasi!", "Data peserta masih kosong", "info", {
+          button: false,
+          timer: 3000,
+        });
+        setInterval(function () {
+          window.location.replace("undian.php");
+        }, 1000);
+      }
 
-          // tangkap data dari database
-          let data = response[0];
+      // jika data peserta ada
+      else {
+        // show modal
+        $("#prosesModal").modal("show");
 
-          // set timeout loading aplikasi
+        // tangkap data dari database
+        let data = response[0];
+
+        // set timeout loading aplikasi
+        setTimeout(function () {
+          // hide modal
+          $("#prosesModal").modal("hide");
+
+          // parsing ke view
+          $("#noPemenang").text("No. Peserta: " + data.no);
+          $("#btnSimpan").attr("onclick", "savePemenang(" + data.no + ")");
+          $("#btnUlang").attr("onclick", "ulangUndian(" + data.no + ")");
+
           setTimeout(function () {
-            // hide modal
-            $("#prosesModal").modal("hide");
-            // parsing ke view
-            $("#noPemenang").text(data.no);
-            $("#namaPemenang").text(data.nm);
-            $("#btnSimpan").removeAttr("disabled");
-            $("#btnSimpan").attr("onclick", "savePemenang(" + data.no + ")");
-          }, 4000);
-        }
-      },
-    });
+            $("#popupModal").modal("show");
+          }, 800);
+        }, 3000);
+      }
+    },
   });
-});
-
-// fungction untuk memunculkan tombol acak
-function showButtonAcak() {
-  $("#btnAcak").removeAttr("disabled");
 }
 
 // fungsi simpan pemenang
 function savePemenang(noPeserta) {
   // ambil nilai dari ID Hadiah
-  let hadiah = $("#hadiah").val();
+  let hadiah = $("#idHdh").val();
 
   $.ajax({
     type: "POST",
@@ -60,14 +60,30 @@ function savePemenang(noPeserta) {
       id: hadiah,
     },
     success: function (response) {
+      $("#popupModal").modal("hide");
+
       swal("Berhasil!", "Data pemenang telah berhasil disimpan", "success", {
         button: false,
         timer: 1000,
       });
 
       setInterval(function () {
-        window.location.replace("?view=undian");
+        window.location.replace("undian.php");
       }, 1000);
     },
   });
+}
+
+function ulangUndian(noPeserta) {
+  $.ajax({
+    type: "POST",
+    url: "php/peserta_hangus.php",
+    data: {
+      no: noPeserta,
+    },
+    success: function (response) {
+      $("#popupModal").modal("hide");
+    },
+  });
+  prosesUndian();
 }

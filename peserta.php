@@ -56,7 +56,17 @@
                     <td><?= $psrt['no_psrt']; ?></td>
                     <td><?= $psrt['nm_psrt']; ?></td>
                     <td>
-                      <?= ($psrt['stts_psrt'] == 0) ? '<span class="badge badge-danger">Belum beruntung</span>' : '<span class="badge badge-warning text-white">Menang</span>'; ?>
+                      <?php
+                      if ($psrt['stts_psrt'] == 0) {
+                        echo '<span class="badge badge-danger">Belum beruntung</span>';
+                      } elseif ($psrt['stts_psrt'] == 1) {
+                        echo
+                          '<span class="badge badge-warning text-white">Menang</span>';
+                      } elseif ($psrt['stts_psrt'] == 2) {
+                        echo
+                          '<span class="badge badge-secondary text-white">Hangus</span>';
+                      }
+                      ?>
                     </td>
                     <td>
                       <div class="btn-group" role="group">

@@ -21,6 +21,7 @@
               <tr>
                 <th width="40">No.</th>
                 <th>Hadiah</th>
+                <th width="40" class="text-center">Urutan</th>
                 <th width="40" class="text-right">Jumlah</th>
                 <th width="120">&nbsp;</th>
               </tr>
@@ -28,13 +29,14 @@
             <tbody>
               <?php
               $no     = 1;
-              $query  = "SELECT * FROM hadiah ORDER BY id_hdh DESC";
+              $query  = "SELECT * FROM hadiah ORDER BY urut_hdh ASC";
               $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
               while ($psrt = mysqli_fetch_array($sql)) :
               ?>
                 <tr>
                   <td class="text-center"><?= $no++ ?></td>
                   <td><?= $psrt['nama_hdh']; ?></td>
+                  <td class="text-center"><?= $psrt['urut_hdh']; ?></td>
                   <td class="text-right"><?= $psrt['jmlh_hdh']; ?></td>
                   <td class="text-center">
                     <div class="btn-group" role="group">
