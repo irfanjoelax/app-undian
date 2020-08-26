@@ -29,15 +29,15 @@
             </thead>
             <tbody>
               <?php
-              $query = "SELECT * FROM peserta WHERE stts_psrt = 1";
+              $query = "SELECT * FROM agen WHERE stts_agen = 1";
               $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
-              while ($psrt = mysqli_fetch_array($sql)) :
+              while ($agen = mysqli_fetch_array($sql)) :
               ?>
                 <tr>
-                  <td><?= $psrt['no_psrt']; ?></td>
-                  <td><?= $psrt['nm_psrt']; ?></td>
+                  <td><?= $agen['no_agen']; ?></td>
+                  <td><?= $agen['nm_agen']; ?></td>
                   <td>
-                    <a href="?view=pemenang-detail&no=<?= $psrt['no_psrt']; ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-eye"></i>&nbsp;Detail</a>
+                    <a href="?view=pemenang-detail&no=<?= $agen['no_agen']; ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-eye"></i>&nbsp;Detail</a>
                   </td>
                 </tr>
               <?php endwhile; ?>

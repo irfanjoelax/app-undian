@@ -4,7 +4,6 @@ $query  = "SELECT * FROM hadiah WHERE id_hdh = '$id'";
 $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $hdh    = mysqli_fetch_array($sql);
 ?>
-
 <div class="card shadow">
   <div class="card-body">
     <h3 class="text-primary">

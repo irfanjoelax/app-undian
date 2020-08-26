@@ -4,16 +4,16 @@
 include('php/koneksi.php');
 include('php/bcrypt.php');
 
-$query    = "SELECT * FROM peserta WHERE stts_psrt = 1";
+$query    = "SELECT * FROM agen WHERE stts_agen = 1";
 $sql      = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-$query2   = "SELECT * FROM peserta";
+$query2   = "SELECT * FROM agen";
 $sql2     = mysqli_query($conn, $query2) or die(mysqli_error($conn));
 
 $query3   = "SELECT * FROM hadiah WHERE jmlh_hdh != 0";
 $sql3     = mysqli_query($conn, $query3) or die(mysqli_error($conn));
 
-$query4   = "SELECT * FROM peserta WHERE stts_psrt = 0";
+$query4   = "SELECT * FROM agen WHERE stts_agen = 0";
 $sql4     = mysqli_query($conn, $query4) or die(mysqli_error($conn));
 
 $totalPemenang  = mysqli_num_rows($sql);
@@ -59,8 +59,8 @@ $sisaPeserta    = mysqli_num_rows($sql4);
           <a class="btn btn-sm btn-primary ml-3 my-2" href="?view=hadiah">
             <i class="zmdi zmdi-mall"></i>&nbsp; Daftar Hadiah
           </a>
-          <a class="btn btn-sm btn-success ml-3 my-2" href="?view=peserta">
-            <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Peserta
+          <a class="btn btn-sm btn-success ml-3 my-2" href="?view=agen">
+            <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Agen
           </a>
           <a class="btn btn-sm btn-info ml-3 my-2" href="?view=pemenang">
             <i class="zmdi zmdi-account-box"></i>&nbsp; Daftar Pemenang

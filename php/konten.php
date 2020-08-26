@@ -6,13 +6,13 @@ else $view = "beranda";
 
 if ($view == "beranda") include("beranda.php");
 
-// VIEW CRUD PESERTA
-elseif ($view == "peserta") include("peserta.php");
-elseif ($view == "peserta-tambah") include("peserta_tambah.php");
-elseif ($view == "peserta-detail") include("peserta_detail.php");
-elseif ($view == "peserta-ubah") include("peserta_ubah.php");
-elseif ($view == "peserta-hapus") include("peserta_hapus.php");
-elseif ($view == "peserta-import") include("peserta_import.php");
+// VIEW CRUD AGEN
+elseif ($view == "agen") include("agen.php");
+elseif ($view == "agen-tambah") include("agen_tambah.php");
+elseif ($view == "agen-detail") include("agen_detail.php");
+elseif ($view == "agen-ubah") include("agen_ubah.php");
+elseif ($view == "agen-hapus") include("agen_hapus.php");
+elseif ($view == "agen-import") include("agen_import.php");
 
 // VIEW CRUD HADIAH
 elseif ($view == "hadiah") include("hadiah.php");

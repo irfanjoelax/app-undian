@@ -4,7 +4,7 @@
 date_default_timezone_set('Asia/Makassar');
 
 // title aplikasi
-$title   = "Aplikasi Undian";
+$title   = "Rahmad Mas'ud Center";
 
 // path aplikasi lokal
 $path    = "http://localhost/www/app-undian";

@@ -3,11 +3,11 @@
 require('koneksi.php');
 
 // tangkap inputan no = nomer peserta & id = id hadiah
-$no = $_POST['no'];
-$id = $_POST['id'];
+$agen = $_POST['agen'];
+$id   = $_POST['id'];
 
 // proses query update status peserta 
-$query  = "UPDATE peserta SET stts_psrt = 1, hdh_id = '$id' WHERE no_psrt = '$no'";
+$query  = "UPDATE agen SET stts_agen = 1, hdh_id = '$id' WHERE id_agen = '$agen'";
 mysqli_query($conn, $query) or die(mysqli_error($conn));
 
 // proses query update jumlah hadiah
