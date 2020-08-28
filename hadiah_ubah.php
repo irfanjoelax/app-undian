@@ -6,10 +6,10 @@ $hdh    = mysqli_fetch_array($sql);
 ?>
 <div class="card shadow">
   <div class="card-body">
-    <h3 class="text-primary">
+    <h3 class="text-warning">
       Ubah Hadiah
     </h3>
-    <hr class="bg-primary">
+    <hr class="bg-warning">
     <form action="<?= $path . '/php/hadiah_ubah_aksi.php?id=' . b_encode($hdh['id_hdh']); ?>" method="POST">
       <div class=" form-group row">
         <div class="col-8">
@@ -25,8 +25,8 @@ $hdh    = mysqli_fetch_array($sql);
           <input type="number" class="form-control" name="jumlah" value="<?= $hdh['jmlh_hdh']; ?>" required>
         </div>
       </div>
-      <button type="submit" class="btn btn-sm btn-primary"><i class="zmdi zmdi-save"></i>&nbsp;Simpan Hadiah</button>
-      <a href="?view=hadiah" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
+      <button type="submit" class="btn btn-sm btn-warning"><i class="zmdi zmdi-save"></i>&nbsp;Simpan Hadiah</button>
+      <a href="?view=hadiah" class="btn btn-sm btn-dark"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
     </form>
   </div>
 </div>

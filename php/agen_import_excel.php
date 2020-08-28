@@ -29,6 +29,7 @@ foreach ($rows as $key => $value) {
   $rt         = $value[4];
   $telepon    = $value[5];
   $no         = $value[6];
+  $prioritas  = $value[7];
 
   $query  = "INSERT INTO agen SET 
                 no_agen   = '$no', 
@@ -39,6 +40,7 @@ foreach ($rows as $key => $value) {
                 rt_agen   = '$rt', 
                 tlp_agen  = '$telepon', 
                 stts_agen = 0, 
+                prioritas_agen = '$prioritas', 
                 hdh_id    = 0
   ";
   mysqli_query($conn, $query) or die(mysqli_error($conn));

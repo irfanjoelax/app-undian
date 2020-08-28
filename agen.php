@@ -1,26 +1,26 @@
 <div class="card shadow">
   <div class="card-body">
     <!-- label header -->
-    <h3 class="text-success">
+    <h3 class="text-warning">
       Daftar Agen
       <span class="float-right ml-2">
-        <button type="button" onclick="deleteAll()" class="btn btn-sm btn-dark">
+        <button type="button" onclick="deleteAll()" class="btn btn-sm btn-danger">
           <i class="zmdi zmdi-delete"></i>&nbsp; Hapus Banyak
         </button>
       </span>
       <span class="float-right ml-2">
-        <a href="?view=agen-import" class="btn btn-sm btn-secondary">
+        <a href="?view=agen-import" class="btn btn-sm btn-success">
           <i class="zmdi zmdi-collection-item"></i>&nbsp; Import Excel
         </a>
       </span>
       <span class="float-right">
-        <a href="?view=agen-tambah" class="btn btn-sm btn-success">
+        <a href="?view=agen-tambah" class="btn btn-sm btn-warning">
           <i class="zmdi zmdi-plus"></i>&nbsp; Tambah
         </a>
       </span>
     </h3>
 
-    <hr class="bg-success">
+    <hr class="bg-warning">
 
     <!-- tabel agen -->
     <div class="row">
@@ -58,19 +58,16 @@
                     <td>
                       <?php
                       if ($psrt['stts_agen'] == 0) {
-                        echo '<span class="badge badge-danger">Belum beruntung</span>';
+                        echo '<span class="badge badge-secondary">Belum beruntung</span>';
                       } elseif ($psrt['stts_agen'] == 1) {
                         echo
                           '<span class="badge badge-warning text-white">Menang</span>';
-                      } elseif ($psrt['stts_agen'] == 2) {
-                        echo
-                          '<span class="badge badge-secondary text-white">Hangus</span>';
                       }
                       ?>
                     </td>
                     <td>
                       <div class="btn-group" role="group">
-                        <a href="?view=agen-ubah&id=<?= b_encode($psrt['id_agen']) ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
+                        <a href="?view=agen-ubah&id=<?= b_encode($psrt['id_agen']) ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
                         <a href="?view=agen-hapus&id=<?= b_encode($psrt['id_agen']) ?>" class="btn btn-sm btn-dark"><i class="zmdi zmdi-delete"></i>&nbsp;Hapus</a>
                       </div>
                     </td>

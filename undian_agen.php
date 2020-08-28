@@ -20,12 +20,12 @@
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white border-bottom shadow py-3">
-    <div class="container-fluid justify-content-between">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border-bottom shadow py-1">
+    <div class="container justify-content-between">
       <a class="navbar-brand" href="#">
         <img class="rounded" src="<?= $path . '/img/logo1.jpeg'; ?>" width="100">
       </a>
-      <span class="h3 text-uppercase"><?= $title; ?></span>
+      <span class="h3 text-uppercase text-warning"><?= $title; ?></span>
       <a class="navbar-brand" href="#">
         <img class="rounded" src="<?= $path . '/img/logo2.jpeg'; ?>" width="100">
       </a>
@@ -33,22 +33,26 @@
   </nav>
 
   <!-- JUMBOTRON -->
-  <div class="jumbotron bg-white text-center">
-    <h1 class="display-4">Selamat Datang!</h1>
-    <p class="lead">Usaha Milik Rukun Tetangga - Rahmad Mas'ud Center</p>
-    <hr class="bg-warning my-4 mb-5">
-    <?php
-    $no     = 1;
-    $query  = "SELECT * FROM hadiah WHERE jmlh_hdh != 0 ORDER BY urut_hdh ASC LIMIT 1";
-    $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
-    $hdh    = mysqli_fetch_array($sql);
-    $jum    = mysqli_num_rows($sql);
-    ?>
-    <h3><?= ($jum > 0) ? $hdh['nama_hdh'] : 'Hadiah Telah Habis'; ?></h3>
-    <input type="hidden" id="idHdh" value="<?= $hdh['id_hdh']; ?>">
-    <button type="button" onclick="prosesUndian()" class="btn btn-warning text-white rounded-pill btn-lg px-5 mt-lg-4" <?= ($jum > 0) ? '' : 'disabled'; ?>>
-      Acak Undian
-    </button>
+  <div class="container">
+    <div class="card bg-white mt-5 shadow text-center">
+      <div class="card-body">
+        <h3 class="font-weight-bold mb-5">Usaha Milik Rukun Tetangga - Rahmad Mas'ud Center</h3>
+        <h4 class="mt-5">HADIAH</h4>
+        <!-- <hr class="bg-warning my-4 mt-5 mb-5"> -->
+        <?php
+        $no     = 1;
+        $query  = "SELECT * FROM hadiah WHERE jmlh_hdh != 0 ORDER BY urut_hdh ASC LIMIT 1";
+        $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
+        $hdh    = mysqli_fetch_array($sql);
+        $jum    = mysqli_num_rows($sql);
+        ?>
+        <h2 class="font-weight-bolder text-warning"><?= ($jum > 0) ? $hdh['nama_hdh'] : 'Hadiah Telah Habis'; ?></h2>
+        <input type="hidden" id="idHdh" value="<?= $hdh['id_hdh']; ?>">
+        <button type="button" onclick="prosesUndian()" class="btn btn-warning rounded-pill btn-lg px-5 mt-2" <?= ($jum > 0) ? '' : 'disabled'; ?>>
+          Acak Undian
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- MODAL PROSES UNDIAN -->
@@ -71,8 +75,8 @@
               <img src="<?= $path . '/img/logo1.jpeg'; ?>" class="img-fluid rounded" alt="Responsive image">
             </div>
             <div class="col-6">
-              <h3 class="text-warning">Selamat Untuk Pemenang!</h3>
-              <h4><?= ($jum > 0) ? $hdh['nama_hdh'] : 'Hadiah Telah Habis'; ?></h4>
+              <h3 class="font-weight-bold text-warning">Selamat Untuk Pemenang!</h3>
+              <h4><?= $hdh['nama_hdh'] ?></h4>
               <h2 class="mt-5 mb-5" id="noPemenang"></h2>
               <h3 class="mt-2 mb-2" id="tlpPemenang"></h3>
               <hr class="bg-warning">
@@ -82,8 +86,8 @@
             </div>
           </div>
           <div class="mt-0">
-            <button type="button" id="btnUlang" class="btn btn-danger">Ulang Undian</button>
-            <button type="button" id="btnSimpan" class="btn btn-warning text-white">Simpan Pemenang</button>
+            <button type="button" id="btnSimpan" class="btn btn-warning">Simpan Pemenang</button>
+            <button type="button" id="btnUlang" class="btn btn-dark">Ulang Undian</button>
           </div>
         </div>
       </div>
@@ -94,7 +98,7 @@
   <script src="vendor/jquery/jquery-3.5.1.min.js"></script>
   <script src="vendor/bootstrap4/bootstrap.bundle.min.js"></script>
   <script src="vendor/sweetalert/sweetalert.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/howler@2.2.0/dist/howler.min.js"></script>
+  <script src="vendor/howler/howler.min.js"></script>
   <script src="js/undian.js"></script>
 </body>
 

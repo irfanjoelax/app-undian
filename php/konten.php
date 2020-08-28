@@ -20,10 +20,8 @@ elseif ($view == "hadiah-tambah") include("hadiah_tambah.php");
 elseif ($view == "hadiah-detail") include("hadiah_detail.php");
 elseif ($view == "hadiah-ubah") include("hadiah_ubah.php");
 elseif ($view == "hadiah-hapus") include("hadiah_hapus.php");
-
-// VIEW UNDIAN
-elseif ($view == "undian") include("undian.php");
+elseif ($view == "hadiah-import") include("hadiah_import.php");
 
 // VIEW PEMENANG
-elseif ($view == "pemenang") include("pemenang.php");
-elseif ($view == "pemenang-detail") include("pemenang_detail.php");
+elseif ($view == "pemenang-agen") include("pemenang_agen.php");
+elseif ($view == "pemenang-agen-detail") include("pemenang_agen_detail.php");

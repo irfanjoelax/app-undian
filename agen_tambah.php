@@ -1,9 +1,9 @@
 <div class="card shadow">
   <div class="card-body">
-    <h3 class="text-success">
+    <h3 class="text-warning">
       Tambah Agen
     </h3>
-    <hr class="bg-success">
+    <hr class="bg-warning">
     <form action="<?= $path . '/php/agen_tambah_aksi.php'; ?>" method="POST" enctype="multipart/form-data">
       <div class="form-group row">
         <div class="col-3">
@@ -47,8 +47,8 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-sm btn-success"><i class="zmdi zmdi-save"></i>&nbsp;Simpan agen</button>
-      <a href="?view=agen" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
+      <button type="submit" class="btn btn-sm btn-warning"><i class="zmdi zmdi-save"></i>&nbsp;Simpan agen</button>
+      <a href="?view=agen" class="btn btn-sm btn-dark"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
     </form>
   </div>
 </div>

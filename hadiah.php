@@ -1,16 +1,21 @@
 <div class="card shadow">
   <div class="card-body">
     <!-- label header -->
-    <h3 class="text-primary">
+    <h3 class="text-warning">
       Daftar Hadiah
+      <span class="float-right ml-2">
+        <a href="?view=hadiah-import" class="btn btn-sm btn-success">
+          <i class="zmdi zmdi-collection-item"></i>&nbsp; Import Excel
+        </a>
+      </span>
       <span class="float-right">
-        <a href="?view=hadiah-tambah" class="btn btn-sm btn-primary">
+        <a href="?view=hadiah-tambah" class="btn btn-sm btn-warning">
           <i class="zmdi zmdi-plus"></i>&nbsp; Tambah
         </a>
       </span>
     </h3>
 
-    <hr class="bg-primary">
+    <hr class="bg-warning">
 
     <!-- tabel hadiah -->
     <div class="row">
@@ -22,8 +27,8 @@
                 <th width="40">No.</th>
                 <th>Hadiah</th>
                 <th width="40" class="text-center">Urutan</th>
-                <th width="40" class="text-right">Jumlah</th>
-                <th width="120">&nbsp;</th>
+                <th width="40" class="text-center">Jumlah</th>
+                <th width="120" class="text-center">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -37,10 +42,10 @@
                   <td class="text-center"><?= $no++ ?></td>
                   <td><?= $psrt['nama_hdh']; ?></td>
                   <td class="text-center"><?= $psrt['urut_hdh']; ?></td>
-                  <td class="text-right"><?= $psrt['jmlh_hdh']; ?></td>
+                  <td class="text-center"><?= $psrt['jmlh_hdh']; ?></td>
                   <td class="text-center">
                     <div class="btn-group" role="group">
-                      <a href="?view=hadiah-ubah&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-secondary"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
+                      <a href="?view=hadiah-ubah&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
                       <a href="?view=hadiah-hapus&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-dark"><i class="zmdi zmdi-delete"></i>&nbsp;Hapus</a>
                     </div>
                   </td>

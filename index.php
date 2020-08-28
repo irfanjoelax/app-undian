@@ -4,22 +4,14 @@
 include('php/koneksi.php');
 include('php/bcrypt.php');
 
-$query    = "SELECT * FROM agen WHERE stts_agen = 1";
-$sql      = mysqli_query($conn, $query) or die(mysqli_error($conn));
+$query   = "SELECT * FROM agen";
+$sql     = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-$query2   = "SELECT * FROM agen";
+$query2   = "SELECT * FROM hadiah WHERE jmlh_hdh != 0";
 $sql2     = mysqli_query($conn, $query2) or die(mysqli_error($conn));
 
-$query3   = "SELECT * FROM hadiah WHERE jmlh_hdh != 0";
-$sql3     = mysqli_query($conn, $query3) or die(mysqli_error($conn));
-
-$query4   = "SELECT * FROM agen WHERE stts_agen = 0";
-$sql4     = mysqli_query($conn, $query4) or die(mysqli_error($conn));
-
-$totalPemenang  = mysqli_num_rows($sql);
-$totalPeserta   = mysqli_num_rows($sql2);
-$totalHadiah    = mysqli_num_rows($sql3);
-$sisaPeserta    = mysqli_num_rows($sql4);
+$totalAgen      = mysqli_num_rows($sql);
+$totalHadiah    = mysqli_num_rows($sql2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,27 +34,27 @@ $sisaPeserta    = mysqli_num_rows($sql4);
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white border-bottom shadow py-3">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark border-bottom shadow py-3">
     <div class="container">
-      <span class="navbar-brand my-2 h4 text-uppercase"><?= $title; ?></span>
+      <span class="navbar-brand my-2 h4 text-uppercase text-warning"><?= $title; ?></span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="btn btn-sm btn-warning text-white ml-3 my-2" href="<?= $path; ?>">
+          <a class="nav-link text-warning ml-2 my-2" href="<?= $path; ?>">
             <i class="zmdi zmdi-layers"></i>&nbsp; Beranda
           </a>
-          <a class="btn btn-sm btn-danger ml-3 my-2 text-white" target="_blank" href="undian.php">
+          <a class="nav-link text-warning ml-2 my-2" target="_blank" href="undian_agen.php">
             <i class="zmdi zmdi-refresh"></i>&nbsp; Undian
           </a>
-          <a class="btn btn-sm btn-primary ml-3 my-2" href="?view=hadiah">
+          <a class="nav-link text-warning ml-2 my-2" href="?view=hadiah">
             <i class="zmdi zmdi-mall"></i>&nbsp; Daftar Hadiah
           </a>
-          <a class="btn btn-sm btn-success ml-3 my-2" href="?view=agen">
+          <a class="nav-link text-warning ml-2 my-2" href="?view=agen">
             <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Agen
           </a>
-          <a class="btn btn-sm btn-info ml-3 my-2" href="?view=pemenang">
+          <a class="nav-link text-warning ml-2 my-2" href="?view=pemenang-agen">
             <i class="zmdi zmdi-account-box"></i>&nbsp; Daftar Pemenang
           </a>
         </div>
@@ -79,28 +71,28 @@ $sisaPeserta    = mysqli_num_rows($sql4);
           <div class="card bg-warning text-white">
             <div class="card-body">
               <h6 class="card-title">
-                Total Peserta:
+                Total Agen:
                 <span class="float-right"><i class="zmdi zmdi-accounts-alt"></i></span>
               </h6>
-              <h4 class="text-center"><?= number_format($totalPeserta); ?></h4>
+              <h4 class="text-center"><?= number_format($totalAgen); ?></h4>
             </div>
           </div>
           <div class="card bg-danger text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
-                Total Pemenang:
-                <span class="float-right"><i class="zmdi zmdi-account-box"></i></span>
+                Total Peserta:
+                <span class="float-right"><i class="zmdi zmdi-account"></i></span>
               </h6>
-              <h4 class="text-center"><?= number_format($totalPemenang); ?></h4>
+              <h4 class="text-center"><?= number_format(0); ?></h4>
             </div>
           </div>
           <div class="card bg-success text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
-                Sisa Peserta:
-                <span class="float-right"><i class="zmdi zmdi-account"></i></span>
+                Total Pemenang:
+                <span class="float-right"><i class="zmdi zmdi-account-box"></i></span>
               </h6>
-              <h4 class="text-center"><?= number_format($sisaPeserta); ?></h4>
+              <h4 class="text-center"><?= number_format(0); ?></h4>
             </div>
           </div>
           <div class="card bg-primary text-white mt-3">
