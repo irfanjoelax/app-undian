@@ -1,6 +1,6 @@
 <?php
 $id     = b_decode($_GET['id']);
-$query  = "SELECT * FROM hadiah WHERE id_hdh = '$id'";
+$query  = "SELECT * FROM hdh_plg WHERE id_hdh = '$id'";
 $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
 $hdh    = mysqli_fetch_array($sql);
 ?>
@@ -10,7 +10,7 @@ $hdh    = mysqli_fetch_array($sql);
       Ubah Hadiah
     </h3>
     <hr class="bg-warning">
-    <form action="<?= $path . '/php/hadiah_ubah_aksi.php?id=' . b_encode($hdh['id_hdh']); ?>" method="POST">
+    <form action="<?= $path . '/php/hadiah_pelanggan_ubah_aksi.php?id=' . b_encode($hdh['id_hdh']); ?>" method="POST">
       <div class=" form-group row">
         <div class="col-8">
           <label for="nama">Nama Hadiah</label>
@@ -26,7 +26,7 @@ $hdh    = mysqli_fetch_array($sql);
         </div>
       </div>
       <button type="submit" class="btn btn-sm btn-warning"><i class="zmdi zmdi-save"></i>&nbsp;Simpan Hadiah</button>
-      <a href="?view=hadiah" class="btn btn-sm btn-dark"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
+      <a href="?view=hadiah-pelanggan" class="btn btn-sm btn-dark"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
     </form>
   </div>
 </div>

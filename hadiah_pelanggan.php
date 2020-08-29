@@ -2,14 +2,14 @@
   <div class="card-body">
     <!-- label header -->
     <h3 class="text-warning">
-      Daftar Hadiah
-      <span class="float-right ml-2">
-        <a href="?view=hadiah-import" class="btn btn-sm btn-success">
+      Daftar Hadiah Pelanggan
+      <!-- <span class="float-right ml-2">
+        <a href="?view=hadiah-import-pelanggan" class="btn btn-sm btn-success">
           <i class="zmdi zmdi-collection-item"></i>&nbsp; Import Excel
         </a>
-      </span>
+      </span> -->
       <span class="float-right">
-        <a href="?view=hadiah-tambah" class="btn btn-sm btn-warning">
+        <a href="?view=hadiah-tambah-pelanggan" class="btn btn-sm btn-warning">
           <i class="zmdi zmdi-plus"></i>&nbsp; Tambah
         </a>
       </span>
@@ -34,7 +34,7 @@
             <tbody>
               <?php
               $no     = 1;
-              $query  = "SELECT * FROM hadiah ORDER BY urut_hdh ASC";
+              $query  = "SELECT * FROM hdh_plg ORDER BY urut_hdh ASC";
               $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
               while ($psrt = mysqli_fetch_array($sql)) :
               ?>
@@ -45,8 +45,8 @@
                   <td class="text-center"><?= $psrt['jmlh_hdh']; ?></td>
                   <td class="text-center">
                     <div class="btn-group" role="group">
-                      <a href="?view=hadiah-ubah&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
-                      <a href="?view=hadiah-hapus&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-dark"><i class="zmdi zmdi-delete"></i>&nbsp;Hapus</a>
+                      <a href="?view=hadiah-ubah-pelanggan&id=<?= b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i>&nbsp;Ubah</a>
+                      <a href="<?= $path . '/php/hadiah_hapus_pelanggan.php?id=' . b_encode($psrt['id_hdh']); ?>" class="btn btn-sm btn-dark"><i class="zmdi zmdi-delete"></i>&nbsp;Hapus</a>
                     </div>
                   </td>
                 </tr>

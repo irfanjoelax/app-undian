@@ -1,7 +1,7 @@
 <div class="card shadow">
    <div class="card-body">
       <h3 class="text-warning">
-         Import Data Hadiah
+         Import Data Hadiah Agen
          <span class="float-right">
             <a href="<?= $path . '/database/contoh_hadiah_import.xlsx'; ?>" class="btn btn-sm btn-success">
                <i class="zmdi zmdi-download"></i>&nbsp; Download Contoh Excel
@@ -9,7 +9,7 @@
          </span>
       </h3>
       <hr class="bg-warning">
-      <form action="<?= $path . '/php/hadiah_import_excel.php'; ?>" method="POST" enctype="multipart/form-data">
+      <form action="<?= $path . '/php/hadiah_agen_import_excel.php'; ?>" method="POST" enctype="multipart/form-data">
          <div class="form-group row">
             <div class="col">
                <label for="nomer">File Excel</label>

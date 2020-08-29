@@ -13,17 +13,17 @@ function prosesUndian() {
   // proses ajax jQuery
   $.ajax({
     type: "GET",
-    url: "php/agen_terdaftar.php",
+    url: "php/konsumen_terdaftar.php",
     dataType: "JSON",
     success: function (response) {
       // jika data peserta masih kosong
       if (response.toString() == "") {
-        swal("Informasi!", "Data peserta masih kosong", "info", {
+        swal("Informasi!", "Data konsumen masih kosong", "info", {
           button: false,
           timer: 3000,
         });
         setInterval(function () {
-          window.location.replace("undian.php");
+          window.location.replace("undian_konsumen.php");
         }, 1000);
       }
 
@@ -43,32 +43,31 @@ function prosesUndian() {
           $("#prosesModal").modal("hide");
 
           // parsing ke view
-          $("#noPemenang").text("No. Peserta: " + data.no);
-          $("#tlpPemenang").text("Telepon: " + data.tlp);
+          $("#nmPemenang").text("Nama: " + data.nm);
+          $("#nikPemenang").text("NIK: " + data.nik);
           $("#btnSimpan").attr("onclick", "savePemenang(" + data.id + ")");
-          $("#btnUlang").attr("onclick", "ulangUndian(" + data.id + ")");
 
           selesai.play();
 
           setTimeout(function () {
             $("#popupModal").modal("show");
           }, 800);
-        }, 10000);
+        }, 8000);
       }
     },
   });
 }
 
 // fungsi simpan pemenang
-function savePemenang(idAgen) {
+function savePemenang(idPelanggan) {
   // ambil nilai dari ID Hadiah
   let hadiah = $("#idHdh").val();
 
   $.ajax({
     type: "POST",
-    url: "php/pemenang_simpan.php",
+    url: "php/pemenang_konsumen_simpan.php",
     data: {
-      agen: idAgen,
+      pelanggan: idPelanggan,
       id: hadiah,
     },
     success: function (response) {
@@ -79,24 +78,9 @@ function savePemenang(idAgen) {
         timer: 1000,
       });
 
-      // setInterval(function () {
-      //   window.location.replace("undian.php");
-      // }, 1000);
+      setInterval(function () {
+        window.location.replace("undian_konsumen.php");
+      }, 1000);
     },
   });
-}
-
-function ulangUndian(idAgen) {
-  // $.ajax({
-  //   type: "POST",
-  //   url: "php/agen_hangus.php",
-  //   data: {
-  //     no: idAgen,
-  //   },
-  //   success: function (response) {
-  //     $("#popupModal").modal("hide");
-  //   },
-  // });
-  $("#popupModal").modal("hide");
-  prosesUndian();
 }

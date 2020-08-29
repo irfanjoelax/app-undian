@@ -11,9 +11,9 @@ $urut     = $_POST['urut'];
 $jumlah   = $_POST['jumlah'];
 
 // proses query database
-$query2  = "UPDATE hadiah SET nama_hdh = '$nama', urut_hdh = '$urut', jmlh_hdh = '$jumlah' WHERE id_hdh = '$id'";
+$query2  = "UPDATE hdh_agen SET nama_hdh = '$nama', urut_hdh = '$urut', jmlh_hdh = '$jumlah' WHERE id_hdh = '$id'";
 mysqli_query($conn, $query2) or die(mysqli_error($conn));
 
 // redirect
-header('Location: ' . $path . '/?view=hadiah');
+header('Location: ' . $path . '/?view=hadiah-agen');
 exit;

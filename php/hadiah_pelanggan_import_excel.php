@@ -25,7 +25,7 @@ foreach ($rows as $key => $value) {
    $urut       = $value[1];
    $jumlah     = $value[2];
 
-   $query  = "INSERT INTO hadiah SET 
+   $query  = "INSERT INTO hdh_plg SET 
                   nama_hdh  = '$nama', 
                   urut_hdh  = '$urut', 
                   jmlh_hdh  = '$jumlah'
@@ -34,5 +34,5 @@ foreach ($rows as $key => $value) {
 }
 
 // REDIRECT
-header('Location: ' . $path . '/?view=hadiah');
+header('Location: ' . $path . '/?view=hadiah-pelanggan');
 exit;

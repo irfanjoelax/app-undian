@@ -10,7 +10,7 @@
   <title><?= $title; ?></title>
 
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="<?= $path . '/img/box.png'; ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= $path . '/img/logo1.jpeg'; ?>" type="image/x-icon">
 
   <!-- CSS FILE -->
   <link rel="stylesheet" href="vendor/bootstrap4/bootstrap.css">
@@ -36,12 +36,13 @@
   <div class="container">
     <div class="card bg-white mt-5 shadow text-center">
       <div class="card-body">
+        <h4 class="display-4">UNDIAN AGEN</h4>
         <h3 class="font-weight-bold mb-5">Usaha Milik Rukun Tetangga - Rahmad Mas'ud Center</h3>
         <h4 class="mt-5">HADIAH</h4>
         <!-- <hr class="bg-warning my-4 mt-5 mb-5"> -->
         <?php
         $no     = 1;
-        $query  = "SELECT * FROM hadiah WHERE jmlh_hdh != 0 ORDER BY urut_hdh ASC LIMIT 1";
+        $query  = "SELECT * FROM hdh_agen WHERE jmlh_hdh != 0 ORDER BY urut_hdh ASC LIMIT 1";
         $sql    = mysqli_query($conn, $query) or die(mysqli_error($conn));
         $hdh    = mysqli_fetch_array($sql);
         $jum    = mysqli_num_rows($sql);
@@ -77,8 +78,8 @@
             <div class="col-6">
               <h3 class="font-weight-bold text-warning">Selamat Untuk Pemenang!</h3>
               <h4><?= $hdh['nama_hdh'] ?></h4>
-              <h2 class="mt-5 mb-5" id="noPemenang"></h2>
-              <h3 class="mt-2 mb-2" id="tlpPemenang"></h3>
+              <h2 class="mt-5 mb-3" id="noPemenang"></h2>
+              <h3 class="mt-2 mb-2" id="nmPemenang"></h3>
               <hr class="bg-warning">
             </div>
             <div class="col-3">
@@ -87,7 +88,6 @@
           </div>
           <div class="mt-0">
             <button type="button" id="btnSimpan" class="btn btn-warning">Simpan Pemenang</button>
-            <button type="button" id="btnUlang" class="btn btn-dark">Ulang Undian</button>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
   <script src="vendor/bootstrap4/bootstrap.bundle.min.js"></script>
   <script src="vendor/sweetalert/sweetalert.min.js"></script>
   <script src="vendor/howler/howler.min.js"></script>
-  <script src="js/undian.js"></script>
+  <script src="js/undian-agen.js"></script>
 </body>
 
 </html>

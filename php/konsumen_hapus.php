@@ -8,9 +8,9 @@ require('bcrypt.php');
 $id = b_decode($_GET['id']);
 
 // proses query delete
-$query2  = "DELETE FROM agen WHERE id_agen = '$id'";
+$query2  = "DELETE FROM pelanggan WHERE id_plg = '$id'";
 mysqli_query($conn, $query2) or die(mysqli_error($conn));
 
 // redirect
-header('Location: ' . $path . '/?view=agen');
+header('Location: ' . $path . '/?view=konsumen');
 exit;

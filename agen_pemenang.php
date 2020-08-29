@@ -2,15 +2,15 @@
   <div class="card-body">
     <!-- label header -->
     <h3 class="text-warning">
-      Daftar Pemenang
-      <span class="float-right">
+      Daftar Pemenang Agen
+      <!-- <span class="float-right">
         <a href="<?= $path . '/php/export_agen_excel.php'; ?>" class="btn btn-sm btn-success">
           <i class="zmdi zmdi-collection-item"></i>&nbsp; Export Excel
         </a>
         <a href="<?= $path . '/php/export_agen_pdf.php'; ?>" class="btn btn-sm btn-danger">
           <i class="zmdi zmdi-collection-pdf"></i>&nbsp; Export PDF
         </a>
-      </span>
+      </span> -->
     </h3>
 
     <hr class="bg-warning">

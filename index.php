@@ -7,11 +7,29 @@ include('php/bcrypt.php');
 $query   = "SELECT * FROM agen";
 $sql     = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-$query2   = "SELECT * FROM hadiah WHERE jmlh_hdh != 0";
+$query2   = "SELECT * FROM pelanggan";
 $sql2     = mysqli_query($conn, $query2) or die(mysqli_error($conn));
 
-$totalAgen      = mysqli_num_rows($sql);
-$totalHadiah    = mysqli_num_rows($sql2);
+$query3   = "SELECT * FROM hdh_agen WHERE jmlh_hdh != 0";
+$sql3     = mysqli_query($conn, $query3) or die(mysqli_error($conn));
+
+$query5   = "SELECT SUM(jmlh_hdh) AS jumhadiah FROM hdh_agen";
+$sql5     = mysqli_query($conn, $query5) or die(mysqli_error($conn));
+$dataAgen = mysqli_fetch_array($sql5);
+
+$query4   = "SELECT * FROM hdh_plg WHERE jmlh_hdh != 0";
+$sql4     = mysqli_query($conn, $query4) or die(mysqli_error($conn));
+
+$query6   = "SELECT SUM(jmlh_hdh) AS jumhadiah FROM hdh_plg";
+$sql6     = mysqli_query($conn, $query6) or die(mysqli_error($conn));
+$dataKons = mysqli_fetch_array($sql6);
+
+$totalAgen              = mysqli_num_rows($sql);
+$totalPelanggan         = mysqli_num_rows($sql2);
+$totalHadiahAgen        = mysqli_num_rows($sql3);
+$jumlahHadiahAgen       = $dataAgen['jumhadiah'];
+$totalHadiahPelanggan   = mysqli_num_rows($sql4);
+$jumlahHadiahPelanggan  = $dataKons['jumhadiah'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +42,7 @@ $totalHadiah    = mysqli_num_rows($sql2);
   <title><?= $title; ?></title>
 
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="<?= $path . '/img/box.png'; ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= $path . '/img/logo1.jpeg'; ?>" type="image/x-icon">
 
   <!-- CSS FILE -->
   <link rel="stylesheet" href="vendor/bootstrap4/bootstrap.css">
@@ -42,21 +60,63 @@ $totalHadiah    = mysqli_num_rows($sql2);
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link text-warning ml-2 my-2" href="<?= $path; ?>">
-            <i class="zmdi zmdi-layers"></i>&nbsp; Beranda
-          </a>
-          <a class="nav-link text-warning ml-2 my-2" target="_blank" href="undian_agen.php">
-            <i class="zmdi zmdi-refresh"></i>&nbsp; Undian
-          </a>
-          <a class="nav-link text-warning ml-2 my-2" href="?view=hadiah">
-            <i class="zmdi zmdi-mall"></i>&nbsp; Daftar Hadiah
-          </a>
-          <a class="nav-link text-warning ml-2 my-2" href="?view=agen">
-            <i class="zmdi zmdi-accounts-alt"></i>&nbsp; Daftar Agen
-          </a>
-          <a class="nav-link text-warning ml-2 my-2" href="?view=pemenang-agen">
-            <i class="zmdi zmdi-account-box"></i>&nbsp; Daftar Pemenang
-          </a>
+          <li class="nav-item active">
+            <a class="nav-link text-warning ml-2 my-2" href="<?= $path; ?>">
+              <i class="zmdi zmdi-layers"></i>&nbsp; Beranda
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-warning ml-2 my-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="zmdi zmdi-refresh"></i>&nbsp; Undian
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="undian_agen.php" target="_blank">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Agen
+              </a>
+              <a class="dropdown-item" href="undian_konsumen.php" target="_blank">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Konsumen
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-warning ml-2 my-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="zmdi zmdi-mall"></i>&nbsp; Daftar Hadiah
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="?view=hadiah-agen">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Agen
+              </a>
+              <a class="dropdown-item" href="?view=hadiah-pelanggan">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Konsumen
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-warning ml-2 my-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="zmdi zmdi-accounts-list"></i>&nbsp; Daftar Peserta
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="?view=agen">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Agen
+              </a>
+              <a class="dropdown-item" href="?view=konsumen">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Konsumen
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-warning ml-2 my-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="zmdi zmdi-accounts-list-alt"></i>&nbsp; Daftar Pemenang
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="?view=pemenang-agen">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Agen
+              </a>
+              <a class="dropdown-item" href="?view=pemenang-konsumen">
+                <i class="zmdi zmdi-chevron-right"></i>&nbsp;Konsumen
+              </a>
+            </div>
+          </li>
         </div>
       </div>
     </div>
@@ -80,28 +140,28 @@ $totalHadiah    = mysqli_num_rows($sql2);
           <div class="card bg-danger text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
-                Total Peserta:
+                Total Konsumen:
                 <span class="float-right"><i class="zmdi zmdi-account"></i></span>
               </h6>
-              <h4 class="text-center"><?= number_format(0); ?></h4>
+              <h4 class="text-center"><?= number_format($totalPelanggan); ?></h4>
             </div>
           </div>
           <div class="card bg-success text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
-                Total Pemenang:
-                <span class="float-right"><i class="zmdi zmdi-account-box"></i></span>
+                Hadiah Agen:
+                <span class="float-right"><i class="zmdi zmdi-mall"></i></span>
               </h6>
-              <h4 class="text-center"><?= number_format(0); ?></h4>
+              <h4 class="text-center"><?= number_format($totalHadiahAgen) . ' - ' . $jumlahHadiahAgen; ?></h4>
             </div>
           </div>
           <div class="card bg-primary text-white mt-3">
             <div class="card-body">
               <h6 class="card-title">
-                Total Hadiah:
+                Hadiah Konsumen:
                 <span class="float-right"><i class="zmdi zmdi-mall"></i></span>
               </h6>
-              <h4 class="text-center"><?= number_format($totalHadiah); ?></h4>
+              <h4 class="text-center"><?= number_format($totalHadiahPelanggan) . ' - ' . $jumlahHadiahPelanggan; ?></h4>
             </div>
           </div>
         </div>

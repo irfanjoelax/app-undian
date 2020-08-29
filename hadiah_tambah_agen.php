@@ -4,7 +4,7 @@
       Tambah Hadiah
     </h3>
     <hr class="bg-warning">
-    <form action="<?= $path . '/php/hadiah_tambah_aksi.php'; ?>" method="POST">
+    <form action="<?= $path . '/php/hadiah_agen_tambah_aksi.php'; ?>" method="POST">
       <div class=" form-group row">
         <div class="col-8">
           <label for="nama">Nama Hadiah</label>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <button type="submit" class="btn btn-sm btn-warning"><i class="zmdi zmdi-save"></i>&nbsp;Simpan Hadiah</button>
-      <a href="?view=hadiah" class="btn btn-sm btn-dark"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
+      <a href="?view=hadiah-agen" class="btn btn-sm btn-dark"><i class="zmdi zmdi-close"></i>&nbsp;Batal / Kembali</a>
     </form>
   </div>
 </div>
